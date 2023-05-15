@@ -1,0 +1,14 @@
+name: 'Your name here'
+description: 'Provide a description here'
+author: 'Your name or organization here'
+inputs:
+  who_to_greet: # change this
+    required: true
+    description: 'The name of the person to greet'
+    default: 'World'
+outputs:
+  greetings_file_path: # id of output
+    description: 'A file where the person has been greeted'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
