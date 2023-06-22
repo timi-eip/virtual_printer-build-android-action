@@ -20,13 +20,6 @@ jobs:
                   distribution: 'adopt'
                   cache: gradle
 
-
-            - name: Set up Android SDK
-              uses: reactivecircus/android-emulator-runner@v2
-              with:
-                  api-level: 30
-                  arch: x86
-
             - name: Build and test
               run: |
                   ./gradlew clean build test
