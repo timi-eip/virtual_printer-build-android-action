@@ -2,7 +2,9 @@ name: Android CI
 
 on:
     push:
-        - main
+        branches:
+            - main
+            - 'releases/*'`
     pull_request:
         branches: [ $default-branch ]
 
