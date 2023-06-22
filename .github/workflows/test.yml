@@ -1,0 +1,41 @@
+name: Android Tests
+
+on:
+    push:
+        branches:
+            - main
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Set up JDK
+              uses: actions/setup-java@v2
+              with:
+                  java-version: '11'
+
+            - name: Set up Android SDK
+              uses: reactivecircus/android-emulator-runner@v2
+              with:
+                  api-level: 30
+                  arch: x86
+
+            - name: Build and test
+              run: |
+                  ./gradlew clean build test
+
+            - name: Publish test coverage
+              uses: actions/upload-artifact@v2
+              with:
+                  name: Test Coverage
+                  path: app/build/reports/jacoco/test/html
+
+            - name: Publish test results
+              uses: actions/upload-artifact@v2
+              with:
+                  name: Test Results
+                  path: app/build/test-results
