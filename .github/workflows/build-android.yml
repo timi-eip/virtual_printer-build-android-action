@@ -24,16 +24,16 @@ jobs:
               run: chmod +x gradlew
             - name: Build with Gradle
               run: ./gradlew assemble --project-dir=${{ inputs.src }} --output-dir=${{ inputs.dest }} --${{ inputs.debug }} --${{ inputs.release }}
-    inputs:
-        src:
-            description: 'Source directory'
-            default: 'app'
-        dest:
-            description: 'Output directory'
-            default: 'app/build/outputs/apk'
-        debug:
-            description: 'Build in debug mode'
-            default: 'true'
-        release:
-            description: 'Build in release mode'
-            default: 'false'
+        inputs:
+            src:
+                description: 'Source directory'
+                default: 'app'
+            dest:
+                description: 'Output directory'
+                default: 'app/build/outputs/apk'
+            debug:
+                description: 'Build in debug mode'
+                default: 'true'
+            release:
+                description: 'Build in release mode'
+                default: 'false'
